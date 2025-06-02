@@ -41,3 +41,11 @@ for epoch in range(epochs):
     # Print loss every 10 epochs
     if (epoch+1) % 10 == 0:
         print(f"Epoch {epoch+1}/{epochs}, Loss: {loss.item():.4f}")
+
+# Plot data and the model's predictions
+predicted = model(X).detach()  # Detach from computation graph for plotting
+plt.scatter(X.numpy(), y.numpy(), label="Data")
+plt.plot(X.numpy(), predicted.numpy(), color="red", label="Fitted Line")
+plt.legend()
+plt.title("Model Fit After Training")
+plt.show()
