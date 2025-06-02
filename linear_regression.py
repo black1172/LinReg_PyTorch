@@ -12,3 +12,32 @@ plt.ylabel("Salary (in $1000s)")
 plt.title("Synthetic Salary Data")
 plt.legend()
 plt.show()
+
+import torch.nn as nn
+
+# Define a simple linear regression model: y = wx + b
+model = nn.Linear(1, 1)  # 1 input feature → 1 output
+
+# Define the loss function (Mean Squared Error)
+criterion = nn.MSELoss()
+
+# Define the optimizer (Stochastic Gradient Descent)
+optimizer = torch.optim.SGD(model.parameters(), lr=0.01)
+
+# Training loop
+epochs = 100
+for epoch in range(epochs):
+    # Forward pass: model prediction
+    predictions = model(X)
+
+    # Compute the loss
+    loss = criterion(predictions, y)
+
+    # Backward pass and optimization
+    optimizer.zero_grad()
+    loss.backward()
+    optimizer.step()
+
+    # Print loss every 10 epochs
+    if (epoch+1) % 10 == 0:
+        print(f"Epoch {epoch+1}/{epochs}, Loss: {loss.item():.4f}")
