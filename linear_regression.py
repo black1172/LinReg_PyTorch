@@ -22,7 +22,7 @@ model = nn.Linear(1, 1)  # 1 input feature → 1 output
 criterion = nn.MSELoss()
 
 # Define the optimizer (Stochastic Gradient Descent)
-optimizer = torch.optim.SGD(model.parameters(), lr=0.0000001)
+optimizer = torch.optim.SGD(model.parameters(), lr=0.1)
 
 # Training loop
 epochs = 100
