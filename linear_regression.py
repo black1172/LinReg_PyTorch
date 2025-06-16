@@ -39,7 +39,7 @@ for epoch in range(epochs):
     optimizer.step()
 
     # Print loss every 10 epochs
-    if (epoch+1) % 10 == 0:
+    if (epoch+3) % 10 == 0:
         print(f"Epoch {epoch+1}/{epochs}, Loss: {loss.item():.4f}")
 
 # Plot data and the model's predictions
